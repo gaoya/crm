@@ -11,34 +11,34 @@
         INSERT  INTO
         sys_admin
         (
-id,
-name,
-name,
-phone,
-address,
-email,
-qq,
-create_time,
-create_user,
-remark,
-use_flag,
-del_flag
+            id,
+            name,
+            name,
+            phone,
+            address,
+            email,
+            qq,
+            create_time,
+            create_user,
+            remark,
+            use_flag,
+            del_flag
 
         )
         VALUES
         (
-#{id},
-#{name},
-#{age},
-#{phone},
-#{address},
-#{email},
-#{qq},
-timestamp(now()),
-#{createUser},
-#{remark},
-#{useFlag},
-#{delFlag}
+            #{id},
+            #{name},
+            #{age},
+            #{phone},
+            #{address},
+            #{email},
+            #{qq},
+            timestamp(now()),
+            #{createUser},
+            #{remark},
+            #{useFlag},
+            #{delFlag}
 
         )
     </insert>
@@ -134,35 +134,35 @@ timestamp(now()),
     </sql>
 
     <sql id="WHERE_SQL">
-        <if test="id != null">AND id = #{id}</if>
-        <if test="name != null">AND name = #{name}</if>
-        <if test="age != null">AND name = #{age}</if>
-        <if test="phone != null">AND phone = #{phone}</if>
-        <if test="address != null">AND address = #{address}</if>
-        <if test="email != null">AND email = #{email}</if>
-        <if test="qq != null">AND qq = #{qq}</if>
-        <if test="createTime != null">AND create_time = timestamp(now())</if>
-        <if test="createUser != null">AND create_user = #{createUser}</if>
-        <if test="remark != null">AND remark = #{remark}</if>
-        <if test="useFlag != null">AND use_flag = #{useFlag}</if>
-        <if test="delFlag != null">AND del_flag = #{delFlag}</if>
+        <if test="id != null and id!=''">AND id = #{id}</if>
+        <if test="name != null and name!=''">AND name = #{name}</if>
+        <if test="age != null and age!=''">AND name = #{age}</if>
+        <if test="phone != null and phone!=''">AND phone = #{phone}</if>
+        <if test="address != null and address!=''">AND address = #{address}</if>
+        <if test="email != null and email!=''">AND email = #{email}</if>
+        <if test="qq != null and qq!=''">AND qq = #{qq}</if>
+        <if test="createTime != null and createTime!=''">AND create_time = timestamp(now())</if>
+        <if test="createUser != null and createUser!=''">AND create_user = #{createUser}</if>
+        <if test="remark != null and remark!=''">AND remark = #{remark}</if>
+        <if test="useFlag != null and useFlag!=''">AND use_flag = #{useFlag}</if>
+        <if test="delFlag != null and delFlag!=''">AND del_flag = #{delFlag}</if>
 
     </sql>
 
     <sql id="UPDATE_SQL">
         <set>
-            <if test="id!=null">id=#{id},</if>
-            <if test="name!=null">name=#{name},</if>
-            <if test="age!=null">name=#{age},</if>
-            <if test="phone!=null">phone=#{phone},</if>
-            <if test="address!=null">address=#{address},</if>
-            <if test="email!=null">email=#{email},</if>
-            <if test="qq!=null">qq=#{qq},</if>
-            <if test="createTime!=null">create_time=timestamp(now()),</if>
-            <if test="createUser!=null">create_user=#{createUser},</if>
-            <if test="remark!=null">remark=#{remark},</if>
-            <if test="useFlag!=null">use_flag=#{useFlag},</if>
-            <if test="delFlag!=null">del_flag=#{delFlag}</if>
+            <if test="id!=null and id!=''">id=#{id},</if>
+            <if test="name!=null and name!=''">name=#{name},</if>
+            <if test="age!=null and age!=''">name=#{age},</if>
+            <if test="phone!=null ang phone!=''">phone=#{phone},</if>
+            <if test="address!=null and address!=''">address=#{address},</if>
+            <if test="email!=null and email!=''">email=#{email},</if>
+            <if test="qq!=null and qq!=''">qq=#{qq},</if>
+            <if test="createTime!=null and createTime!=''">create_time=timestamp(now()),</if>
+            <if test="createUser!=null and createUser!=''">create_user=#{createUser},</if>
+            <if test="remark!=null and remark!=''">remark=#{remark},</if>
+            <if test="useFlag!=null and useFlag!=''">use_flag=#{useFlag},</if>
+            <if test="delFlag!=null and delFlag!=''">del_flag=#{delFlag}</if>
 
         </set>
     </sql>

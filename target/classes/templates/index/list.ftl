@@ -8,9 +8,9 @@
 <!-- table中内部操作 -->
 <@ltable.innerToolsBar/>
 <@common.js/>
-<@ltable.table '/admin/list'/>
+<@ltable.table '/${menuType}/list'/>
 <script>
-    initTable('/admin')
+    initTable('/${menuType}')
 </script>
 </body>
 </html>

@@ -2,26 +2,14 @@
 <div class="searchBar" style="padding-top: 20px; padding-bottom: 20px">
     <form id="searchForm">
         <div class="layui-form-item">
-            <div class="layui-inline">
-                <label class="layui-form-label">多规则验证</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="number" lay-verify="required|number" autocomplete="off"
-                           class="layui-input" placeholder="">
+            <#list searchData as search>
+                <div class="layui-inline">
+                    <label class="layui-form-label">${search.pLabel}</label>
+                    <div class="layui-input-inline">
+                        ${search.pSearchdata}
+                    </div>
                 </div>
-            </div>
-            <div class="layui-inline">
-                <label class="layui-form-label">验证日期</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="date" id="date" lay-verify="date" placeholder="yyyy-MM-dd"
-                           autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <div class="layui-inline">
-                <label class="layui-form-label">验证链接</label>
-                <div class="layui-input-inline">
-                    <input type="tel" name="url" lay-verify="url" autocomplete="off" class="layui-input">
-                </div>
-            </div>
+            </#list>
         </div>
     </form>
     <button class="layui-btn" data-type="reload">搜索</button>
@@ -47,15 +35,9 @@
             <thead>
             <tr>
                 <th lay-data="{type:'checkbox', fixed: 'left'}"></th>
-                <th lay-data="{field:'id', width: 80, sort: true, fixed: true}">ID</th>
-                <th lay-data="{field:'username',width: 80, fixed: true}">用户名</th>
-                <th lay-data="{field:'sex',  sort: true}">性别</th>
-                <th lay-data="{field:'city'}">城市</th>
-                <th lay-data="{field:'sign'}">签名</th>
-                <th lay-data="{field:'experience', sort: true}">积分</th>
-                <th lay-data="{field:'classify'}">职业</th>
-                <th lay-data="{field:'wealth', sort: true}">财富</th>
-                <th lay-data="{field:'score', width:80, sort: true, fixed: 'right'}">评分</th>
+                <#list titleData as title>
+                    <th lay-data="${title.pListdata}">${title.pLabel}</th>
+                </#list>
                 <th lay-data="{fixed: 'right', width:178, align:'center', toolbar: '#toolBar'}"></th>
             </tr>
             </thead>

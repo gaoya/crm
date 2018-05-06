@@ -9,7 +9,7 @@ public   class   ShowParamEntity   {
 
     @TltFld(name="id" ,value="id",commonts = "id", column = "id", author = "gss")
     private String id ;//
-    @TltFld(name="menuId" ,value="菜单Id",commonts = "菜单Id", column = "menuId", author = "gss")
+    @TltFld(name="menuId" ,value="菜单Id",commonts = "菜单Id", column = "menu_id", author = "gss")
     private String menuId ;//
     @TltFld(name="menuCode" ,value="菜单CODE",commonts = "菜单CODE", column = "menu_code", author = "gss")
     private String menuCode ;//
@@ -27,10 +27,20 @@ public   class   ShowParamEntity   {
     private String pListdata ;//
     @TltFld(name="pAdd" ,value="新增参数",commonts = "新增参数", column = "p_add", author = "gss")
     private String pAdd ;//
+    @TltFld(name="pAdddata" ,value="新增数据",commonts = "新增数据", column = "p_adddata", author = "gss")
+    private String pAdddata;
     @TltFld(name="pUpdate" ,value="修改参数",commonts = "修改参数", column = "p_update", author = "gss")
     private String pUpdate ;//
+    @TltFld(name="pUpdatedata" ,value="修改数据",commonts = "修改数据", column = "p_updatedata", author = "gss")
+    private String pUpdatedata ;
+    @TltFld(name="pAddUpdateLabel" ,value="Add和Update的标签",commonts = "Add和Update的标签", column = "p_add_update_label", author = "gss")
+    private String pAddUpdateLabel;
+    @TltFld(name="pAddUpdateMsg" ,value="Add和update的提示信息",commonts = "Add和update的提示信息", column = "p_add_update_msg", author = "gss")
+    private String pAddUpdateMsg;
     @TltFld(name="pDel" ,value="删除参数",commonts = "删除参数", column = "p_del", author = "gss")
     private String pDel ;//
+    @TltFld(name="pDetail" ,value="显示参数",commonts = "显示参数", column = "p_detail", author = "gss")
+    private String pDetail;
     @TltFld(name="pDefaultvalue" ,value="默认值",commonts = "默认值", column = "p_defaultvalue", author = "gss")
     private String pDefaultvalue ;//
     @TltFld(name="pUser" ,value="用户",commonts = "用户", column = "p_user", author = "gss")
@@ -44,8 +54,105 @@ public   class   ShowParamEntity   {
     private String pRemark ;//
     @TltFld(name="pSearch" ,value="查询",commonts = "查询", column = "p_search", author = "gss")
     private String pSearch ;//
-
+    @TltFld(name="pSearchdata" ,value="查询",commonts = "查询", column = "p_searchdata", author = "gss")
+    private String pSearchdata ;
     public ShowParamEntity() {
+    }
+
+    public String getpAddUpdateMsg() {
+        return pAddUpdateMsg;
+    }
+
+    public void setpAddUpdateMsg(String pAddUpdateMsg) {
+        this.pAddUpdateMsg = pAddUpdateMsg;
+    }
+
+    public String getpSearchdata() {
+        return pSearchdata;
+    }
+
+    public void setpSearchdata(String pSearchdata) {
+        this.pSearchdata = pSearchdata;
+    }
+
+    public String getpAddUpdateLabel() {
+        return pAddUpdateLabel;
+    }
+
+    public void setpAddUpdateLabel(String pAddUpdateLabel) {
+        this.pAddUpdateLabel = pAddUpdateLabel;
+    }
+
+    public String getpDetail() {
+        return pDetail;
+    }
+
+    public void setpDetail(String pDetail) {
+        this.pDetail = pDetail;
+    }
+
+    public String getpUpdatedata() {
+        return pUpdatedata;
+    }
+
+    public void setpUpdatedata(String pUpdatedata) {
+        this.pUpdatedata = pUpdatedata;
+    }
+
+    @Override
+    public String toString() {
+        return "ShowParamEntity{" +
+                "id='" + id + '\'' +
+                ", menuId='" + menuId + '\'' +
+                ", menuCode='" + menuCode + '\'' +
+                ", pId='" + pId + '\'' +
+                ", pName='" + pName + '\'' +
+                ", pPlaceholder='" + pPlaceholder + '\'' +
+                ", pLabel='" + pLabel + '\'' +
+                ", pList='" + pList + '\'' +
+                ", pListdata='" + pListdata + '\'' +
+                ", pAdd='" + pAdd + '\'' +
+                ", pAdddata='" + pAdddata + '\'' +
+                ", pUpdate='" + pUpdate + '\'' +
+                ", pDel='" + pDel + '\'' +
+                ", pDefaultvalue='" + pDefaultvalue + '\'' +
+                ", pUser='" + pUser + '\'' +
+                ", pTime='" + pTime + '\'' +
+                ", pSort='" + pSort + '\'' +
+                ", pRemark='" + pRemark + '\'' +
+                ", pSearch='" + pSearch + '\'' +
+                '}';
+    }
+
+    public ShowParamEntity(String id, String menuId, String menuCode, String pId, String pName, String pPlaceholder, String pLabel, String pList, String pListdata, String pAdd, String pAdddata, String pUpdate, String pDel, String pDefaultvalue, String pUser, String pTime, String pSort, String pRemark, String pSearch) {
+        this.id = id;
+        this.menuId = menuId;
+        this.menuCode = menuCode;
+        this.pId = pId;
+        this.pName = pName;
+        this.pPlaceholder = pPlaceholder;
+        this.pLabel = pLabel;
+        this.pList = pList;
+        this.pListdata = pListdata;
+        this.pAdd = pAdd;
+        this.pAdddata = pAdddata;
+        this.pUpdate = pUpdate;
+        this.pDel = pDel;
+        this.pDefaultvalue = pDefaultvalue;
+        this.pUser = pUser;
+        this.pTime = pTime;
+        this.pSort = pSort;
+        this.pRemark = pRemark;
+        this.pSearch = pSearch;
+    }
+
+    public String getpAdddata() {
+
+        return pAdddata;
+    }
+
+    public void setpAdddata(String pAdddata) {
+        this.pAdddata = pAdddata;
     }
 
     public ShowParamEntity(String id, String menuId, String menuCode, String pId, String pName, String pPlaceholder, String pLabel, String pList, String pListdata, String pAdd, String pUpdate, String pDel, String pDefaultvalue, String pUser, String pTime, String pSort, String pRemark, String pSearch) {
@@ -68,30 +175,6 @@ public   class   ShowParamEntity   {
         this.pSort = pSort;
         this.pRemark = pRemark;
         this.pSearch = pSearch;
-    }
-
-    @Override
-    public String toString() {
-        return "ShowParamEntity{" +
-                "id='" + id + '\'' +
-                ", menuId='" + menuId + '\'' +
-                ", menuCode='" + menuCode + '\'' +
-                ", pId='" + pId + '\'' +
-                ", pName='" + pName + '\'' +
-                ", pPlaceholder='" + pPlaceholder + '\'' +
-                ", pLabel='" + pLabel + '\'' +
-                ", pList='" + pList + '\'' +
-                ", pListdata='" + pListdata + '\'' +
-                ", pAdd='" + pAdd + '\'' +
-                ", pUpdate='" + pUpdate + '\'' +
-                ", pDel='" + pDel + '\'' +
-                ", pDefaultvalue='" + pDefaultvalue + '\'' +
-                ", pUser='" + pUser + '\'' +
-                ", pTime='" + pTime + '\'' +
-                ", pSort='" + pSort + '\'' +
-                ", pRemark='" + pRemark + '\'' +
-                ", pSearch='" + pSearch + '\'' +
-                '}';
     }
 
     public String getId() {

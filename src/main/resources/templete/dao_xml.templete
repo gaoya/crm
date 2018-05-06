@@ -96,12 +96,12 @@
     </sql>
 
     <sql id="WHERE_SQL">
-        [for][params]###<if test="[name] != null">  AND [column] = #{[name]}  </if>[/for]
+        [for][params]###<if test="[name] != null and [name]!=''">  AND [column] = #{[name]}  </if>[/for]
     </sql>
 
     <sql id="UPDATE_SQL">
         <set>
-            [for][params]###<if test="[name]!=null">   [column]=#{[name]}[comma] </if>[/for]
+            [for][params]###<if test="[name]!=null and [name]!=''">   [column]=#{[name]}[comma] </if>[/for]
         </set>
     </sql>
 </mapper>

@@ -4,7 +4,7 @@
         <title>${title}</title>
         <meta name="renderer" content="webkit">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi">
         <link rel="stylesheet" href="/static/component/lib/layui/css/layui.css" media="all">
         <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
         <link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.css">

@@ -1,5 +1,7 @@
 package com.kyd.biz;
 
+import com.kyd.service.ShowParamService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,6 +18,8 @@ import java.util.Map;
 @Controller
 public class IndexController {
 
+    @Autowired
+    private ShowParamService showParamService;
 
     /**
      * 程序入口
@@ -54,36 +59,25 @@ public class IndexController {
     public ModelAndView list(HttpServletRequest request, HttpServletResponse response, @PathVariable("suffix") String suffix) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/index/list");
+        List<Map<String, Object>> searchData = paramsList("admin", "0","p_search");
+        List<Map<String, Object>> titleData = paramsList("admin", "0","p_list");
+
+        modelAndView.addObject("searchData", searchData);
+        modelAndView.addObject("titleData", titleData);
+        modelAndView.addObject("menuType",suffix);
         return modelAndView;
     }
-
-
-    /**
-     * 得到查询数据
-     * @return
-     */
-    public List<Map<String, Object>> searchList() {
-        return null;
-    }
-
-    /**
-     * 得到标题信息
-     * @return
-     */
-    public List<Map<String, Object>> tableTitleList() {
-        return null;
-    }
-
-
 
     /**
      * 新增用户
      * @return
      */
-    @RequestMapping("/add")
-    public ModelAndView add(HttpServletRequest request, HttpServletResponse response) {
+    @RequestMapping("/{suffix}/add")
+    public ModelAndView add(HttpServletRequest request, HttpServletResponse response, @PathVariable("suffix") String suffix) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName(newUrl(request));
+        modelAndView.setViewName("/index/add");
+        List<Map<String, Object>> addData = paramsList("admin", "0","p_add");
+        modelAndView.addObject("addData",addData);
         return modelAndView;
 
     }
@@ -92,21 +86,40 @@ public class IndexController {
      * 修改页面
      * @return
      */
-    @RequestMapping("/edit")
-    public ModelAndView edit(HttpServletRequest request, HttpServletResponse response) {
+    @RequestMapping("/{suffix}/edit")
+    public ModelAndView edit(HttpServletRequest request, HttpServletResponse response, @PathVariable("suffix") String suffix) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName(newUrl(request));
+        modelAndView.setViewName("/index/edit");
+        List<Map<String, Object>> editData = paramsList("admin","0","p_update");
+        modelAndView.addObject("editData",editData);
         return modelAndView;
     }
 
     /**
-     * 得到一个view的路径地址，
+     * 修改页面
      * @return
      */
-    private String newUrl(HttpServletRequest request ) {
-        String url =  request.getRequestURI();
-        String urlParam = request.getParameter(URL_PARAM);
-        String nUrl= COMPONENT_ROOT_VIEW + '/' +urlParam  + url;
-        return nUrl ;
+    @RequestMapping("/{suffix}/detail")
+    public ModelAndView detail(HttpServletRequest request, HttpServletResponse response, @PathVariable("suffix") String suffix) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/index/detail");
+        List<Map<String, Object>> detailData = paramsList("admin","0","p_detail");
+        modelAndView.addObject("detailData",detailData);
+        return modelAndView;
     }
+
+
+    /**
+     * 得到查询数据
+     * @return
+     */
+    private List<Map<String, Object>> paramsList(String menuCode, String typeValue,String type) {
+        Map<String, Object> param = new HashMap<>();
+        param.put("menuCode", menuCode);
+        param.put("pTypeValue", typeValue);
+        param.put("pType",type);
+        List<Map<String, Object>> list = showParamService.paramList(param);
+        return list;
+    }
+
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
@@ -26,6 +27,7 @@ public class [class]Biz extends AbstractBiz<[class]Service> implements BaseBiz<[
     @ApiImplicitParams({
             [for][params]###@ApiImplicitParam(name = "[name]",value = "[commonts]")[comma][/for]
     })
+    @ResponseBody
     @RequestMapping(value = "/list",method = RequestMethod.POST)
     protected ResultListViewData list() throws Exception {
         Map<String,Object> param = requestToMap();
