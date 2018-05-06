@@ -14,6 +14,8 @@ import java.util.Map;
 @RequestMapping("/")
 @Controller
 public class IndexController {
+
+
     /**
      * 程序入口
      * @return

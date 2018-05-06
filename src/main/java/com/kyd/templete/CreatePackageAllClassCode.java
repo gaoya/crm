@@ -1,6 +1,8 @@
 package com.kyd.templete;
 
 import com.kyd.core.templete.CreateCodeFile;
+import com.kyd.entity.ShowParamEntity;
+
 /**
  * 生成包下面的所有的文件
  */
@@ -8,8 +10,8 @@ public class CreatePackageAllClassCode {
     public static final String PARENT_PACKAGE = "com.kyd";
 
     public static void main(String[] args)  throws Exception{
-        createClassInPackage();
-//        createByEntity();
+//        createClassInPackage();
+        createByEntity(ShowParamEntity.class);
     }
 
     /**
