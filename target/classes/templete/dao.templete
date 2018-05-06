@@ -1,0 +1,8 @@
+package [package].dao;
+
+import com.kyd.core.dao.BaseMapper;
+import org.springframework.stereotype.Component;
+
+@Component
+public interface [class]Mapper  extends BaseMapper{
+}

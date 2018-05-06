@@ -1,0 +1,13 @@
+package [package].service.impl;
+
+import com.kyd.core.service.CoreServiceImpl;
+import com.kyd.dao.[class]Mapper;
+import [package].service.[class]Service;
+import org.springframework.stereotype.Service;
+
+
+@Service("[classUnCap]Service")
+public class [class]ServiceImpl extends CoreServiceImpl<[class]Mapper> implements [class]Service {
+
+
+}

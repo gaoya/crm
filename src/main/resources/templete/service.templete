@@ -1,0 +1,8 @@
+package [package].service;
+
+import com.kyd.core.service.BaseService;
+import com.kyd.dao.[class]Mapper;
+
+public interface [class]Service extends BaseService<[class]Mapper> {
+
+}
