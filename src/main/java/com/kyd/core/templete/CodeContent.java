@@ -195,7 +195,8 @@ public class CodeContent {
      *
      * @return
      */
-    private String lineReplaceStr(String resLine, Method[] declaredMethods, TltFld tltFld,Field field) throws Exception {
+    private String lineReplaceStr(String resLine, Method[] declaredMethods,
+                                  TltFld tltFld,Field field) throws Exception {
         String templeteFileType = tltFile.getType();
         for (Method method : declaredMethods) {
             method.setAccessible(true);
@@ -209,7 +210,8 @@ public class CodeContent {
                         && methodName.equals("name")) {
                     resLine = TltTimeConvert.strReplace(field, resLine, methodName);
                 }
-                resLine = BaseConvert.strConvert(resLine, methodName , EMPTY_STR + method.invoke(tltFld));
+                resLine = BaseConvert.strConvert(resLine, methodName ,
+                        EMPTY_STR + method.invoke(tltFld));
 
             }
         }

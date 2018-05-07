@@ -10,7 +10,7 @@ function initTable(_prefix) {
             if (obj.event === 'detail') {
                 tableDetail(_prefix + '/detail');
             } else if (obj.event === 'del') {
-                tableDelete(obj);
+                tableDelete(_prefix,obj);
             } else if (obj.event === 'edit') {
                 tableEdit(_prefix + '/edit');
             }
@@ -69,10 +69,36 @@ function tableEdit(_url) {
 /**
  * 删除页面
  */
-function tableDelete( _obj) {
+function tableDelete( _suffix,_obj) {
+
     layer.confirm('真的删除行么', function(index){
-        _obj.del();
-        layer.close(index);
+        if (_obj==null){
+            layer.msg('删除失败！',{icon:2});
+        }else {
+            $.ajax({
+                url:   _suffix + "/delete/" + _obj.data.id,
+                type:'get',
+                success: function(result){
+                    if (result.deleteCount>0){
+                        layer.msg("删除数据成功",{icon:1},function () {
+                            _obj.del();
+                            location.reload();
+                            layer.close(index);
+                        });
+                    }else {
+                        layer.msg("删除数据失败",{icon:2});
+                    }
+
+                },error: function(resp){
+                    layer.msg("通讯失败",{icon:2});
+                }
+            })
+        }
+
+
+        // _obj.del();
+        // // window.parent.location.reload();
+        // layer.close(index);
     });
 }
 

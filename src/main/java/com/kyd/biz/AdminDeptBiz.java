@@ -118,4 +118,5 @@ public class AdminDeptBiz extends AbstractBiz<AdminDeptService> implements BaseB
     protected ResultDeleteViewData delete(@PathVariable("id") Long id) throws Exception {
         return super.delete(id);
     }
+
 }
