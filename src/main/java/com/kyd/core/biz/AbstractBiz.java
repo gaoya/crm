@@ -16,6 +16,8 @@ public abstract class AbstractBiz<T extends BaseService> implements BaseBiz<T>  
     protected T baseService;
     @Autowired
     protected HttpServletRequest request;
+    @Autowired
+    protected BizUtils bizUtils;
 
     /**
      * 查询操作
@@ -76,24 +78,5 @@ public abstract class AbstractBiz<T extends BaseService> implements BaseBiz<T>  
         return baseService.deleteOneById(id);
     }
 
-    /**
-     * request 转换成Map集合数据
-     * @return
-     */
-    protected Map<String, Object> requestToMap() {
-        Enumeration<String> names = request.getParameterNames();
-        Map<String, Object> map = new HashMap<>();
 
-        while (names.hasMoreElements()) {
-
-            String name = names.nextElement();
-            String value = request.getParameter(name);
-
-            if (StringUtils.isNotEmpty(name)) {
-                map.put(name, StringUtils.isEmpty(value) ? "" : value);
-            }
-        }
-
-        return map;
-    }
 }

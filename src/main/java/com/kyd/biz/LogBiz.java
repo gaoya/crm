@@ -41,7 +41,7 @@ public class LogBiz extends AbstractBiz<LogService> implements BaseBiz<LogServic
     })
     @RequestMapping(value = "/list", method = RequestMethod.POST)
     protected ResultListViewData list() throws Exception {
-        Map<String, Object> param = requestToMap();
+        Map<String, Object> param = bizUtils.requestToMap(request);
         return super.list(param);
     }
 
@@ -66,8 +66,8 @@ public class LogBiz extends AbstractBiz<LogService> implements BaseBiz<LogServic
 
     })
     protected ResultTotalViewData dataTotalCount() throws Exception {
-        Map<String, Object> map = requestToMap();
-        return super.dataTotalCount(map);
+        Map<String, Object> param = bizUtils.requestToMap(request);
+        return super.dataTotalCount(param);
     }
 
     /**
@@ -100,8 +100,8 @@ public class LogBiz extends AbstractBiz<LogService> implements BaseBiz<LogServic
 
     })
     protected ResultUpdateViewDate update() throws Exception {
-        Map<String, Object> map = requestToMap();
-        return super.update(map);
+        Map<String, Object> param = bizUtils.requestToMap(request);
+        return super.update(param);
     }
 
     @ApiOperation("新增数据信息")
@@ -119,8 +119,8 @@ public class LogBiz extends AbstractBiz<LogService> implements BaseBiz<LogServic
 
     })
     protected ResultInsertViewData insert() throws Exception {
-        Map<String, Object> map = requestToMap();
-        return super.insert(map);
+        Map<String, Object> param = bizUtils.requestToMap(request);
+        return super.insert(param);
     }
 
     @ApiOperation("删除数据信息")

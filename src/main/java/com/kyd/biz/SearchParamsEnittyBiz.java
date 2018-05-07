@@ -47,7 +47,7 @@ public class SearchParamsEnittyBiz extends AbstractBiz<SearchParamsEnittyService
     })
     @RequestMapping(value = "/list", method = RequestMethod.POST)
     protected ResultListViewData list() throws Exception {
-        Map<String, Object> param = requestToMap();
+        Map<String, Object> param = bizUtils.requestToMap(request);
         return super.list(param);
     }
 
@@ -78,8 +78,8 @@ public class SearchParamsEnittyBiz extends AbstractBiz<SearchParamsEnittyService
 
     })
     protected ResultTotalViewData dataTotalCount() throws Exception {
-        Map<String, Object> map = requestToMap();
-        return super.dataTotalCount(map);
+        Map<String, Object> param = bizUtils.requestToMap(request);
+        return super.dataTotalCount(param);
     }
 
     /**
@@ -118,8 +118,8 @@ public class SearchParamsEnittyBiz extends AbstractBiz<SearchParamsEnittyService
 
     })
     protected ResultUpdateViewDate update() throws Exception {
-        Map<String, Object> map = requestToMap();
-        return super.update(map);
+        Map<String, Object> param = bizUtils.requestToMap(request);
+        return super.update(param);
     }
 
     @ApiOperation("新增数据信息")
@@ -143,8 +143,8 @@ public class SearchParamsEnittyBiz extends AbstractBiz<SearchParamsEnittyService
 
     })
     protected ResultInsertViewData insert() throws Exception {
-        Map<String, Object> map = requestToMap();
-        return super.insert(map);
+        Map<String, Object> param = bizUtils.requestToMap(request);
+        return super.insert(param);
     }
 
     @ApiOperation("删除数据信息")
