@@ -6,6 +6,8 @@ import org.apache.commons.lang3.StringUtils;
  * 类的反射
  */
 public class ClassReflet {
+    private ClassReflet() {
+    }
 
     /***
      * 将一个类的名称转换成一个对象

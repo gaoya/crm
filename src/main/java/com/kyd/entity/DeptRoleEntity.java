@@ -1,5 +1,4 @@
 package com.kyd.entity;
-import lombok.Data;
 
 public class DeptRoleEntity{
     private Integer id;

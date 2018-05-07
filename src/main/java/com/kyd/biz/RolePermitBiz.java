@@ -75,7 +75,7 @@ public class RolePermitBiz extends AbstractBiz<RolePermitService> implements Bas
     @ApiImplicitParam(required = true, name = "id", value = "主键", paramType = "jquery")
     @RequestMapping(value = "/findOne/{id}", method = RequestMethod.GET)
     @Override
-    protected ResultFindOneViewData findById(@PathVariable("id") Long id) throws Exception {
+    protected ResultFindOneViewData findById(@PathVariable("id") Long id) {
         return super.findById(id);
     }
 
@@ -115,7 +115,7 @@ public class RolePermitBiz extends AbstractBiz<RolePermitService> implements Bas
     @ApiImplicitParam(paramType = "query", name = "id", value = "主键")
     @RequestMapping(value = "/delete/{id}", method = {RequestMethod.GET, RequestMethod.POST})
     @Override
-    protected ResultDeleteViewData delete(@PathVariable("id") Long id) throws Exception {
+    protected ResultDeleteViewData delete(@PathVariable("id") Long id) {
         return super.delete(id);
     }
 }

@@ -4,6 +4,9 @@ package com.kyd.core.templete;
  * 基本类型转换
  */
 public class BaseConvert {
+    private BaseConvert() {
+    }
+
     public static final String STR_START = "[";
     public static final String STR_END ="]";
 

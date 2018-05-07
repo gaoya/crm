@@ -27,7 +27,7 @@ public class CoreServiceImpl<T extends BaseMapper> implements BaseService<T> {
      * @throws Exception
      */
     @Override
-    public ResultListViewData listAllByPageParam(Map<String, Object> map) throws Exception {
+    public ResultListViewData listAllByPageParam(Map<String, Object> map) {
         ResultListViewData result = new ResultListViewData();
 
         Long totalSize = baseMapper.findCountByPageParam(map);
@@ -76,7 +76,7 @@ public class CoreServiceImpl<T extends BaseMapper> implements BaseService<T> {
      * @throws Exception
      */
     @Override
-    public ResultTotalViewData dataTotalCount(Map<String, Object> map) throws Exception {
+    public ResultTotalViewData dataTotalCount(Map<String, Object> map) {
         ResultTotalViewData result = new ResultTotalViewData();
         result.setClassName(this.getClass().getSimpleName());
         result.setMethodName("listAllByPageParam");
@@ -107,7 +107,7 @@ public class CoreServiceImpl<T extends BaseMapper> implements BaseService<T> {
      * @throws Exception
      */
     @Override
-    public ResultFindOneViewData findOneById(Long id) throws Exception {
+    public ResultFindOneViewData findOneById(Long id) {
         Map<String, Object> data = baseMapper.findById(id);
         ResultFindOneViewData result = new ResultFindOneViewData();
         result.setData(data);
@@ -127,7 +127,7 @@ public class CoreServiceImpl<T extends BaseMapper> implements BaseService<T> {
     }
 
     @Override
-    public ResultDeleteViewData deleteOneById(Long id) throws Exception {
+    public ResultDeleteViewData deleteOneById(Long id) {
         ResultDeleteViewData result = new ResultDeleteViewData();
         Long count = baseMapper.deleteById(id);
         result.setClassName(this.getClass().getSimpleName());
@@ -148,7 +148,7 @@ public class CoreServiceImpl<T extends BaseMapper> implements BaseService<T> {
 
     @Transactional
     @Override
-    public ResultUpdateViewDate update(Map<String, Object> map) throws Exception {
+    public ResultUpdateViewDate update(Map<String, Object> map) {
         ResultUpdateViewDate result = new ResultUpdateViewDate();
         Long count = baseMapper.update(map);
         result.setClassName(this.getClass().getSimpleName());
@@ -170,7 +170,7 @@ public class CoreServiceImpl<T extends BaseMapper> implements BaseService<T> {
 
     @Transactional
     @Override
-    public ResultInsertViewData insert(Map<String, Object> map) throws Exception {
+    public ResultInsertViewData insert(Map<String, Object> map) {
         ResultInsertViewData result = new ResultInsertViewData();
         Long count = baseMapper.insert(map);
         result.setClassName(this.getClass().getSimpleName());

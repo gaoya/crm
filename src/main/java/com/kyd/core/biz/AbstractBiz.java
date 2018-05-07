@@ -32,7 +32,7 @@ public abstract class AbstractBiz<T extends BaseService> implements BaseBiz<T>  
      *
      * @return
      */
-    protected ResultListViewData list(Map<String, Object> param) throws Exception {
+    protected ResultListViewData list(Map<String, Object> param) {
         return baseService.listAllByPageParam(param);
     }
 
@@ -42,12 +42,12 @@ public abstract class AbstractBiz<T extends BaseService> implements BaseBiz<T>  
      * @param map
      * @return
      */
-    protected ResultTotalViewData dataTotalCount(Map<String, Object> map) throws Exception {
+    protected ResultTotalViewData dataTotalCount(Map<String, Object> map) {
         return baseService.dataTotalCount(map);
     }
 
 
-    protected ResultFindOneViewData findById(Long id) throws Exception {
+    protected ResultFindOneViewData findById(Long id) {
         return baseService.findOneById(id);
     }
 
@@ -57,7 +57,7 @@ public abstract class AbstractBiz<T extends BaseService> implements BaseBiz<T>  
      * @param map
      * @return
      */
-    protected ResultUpdateViewDate update(Map<String, Object> map) throws Exception {
+    protected ResultUpdateViewDate update(Map<String, Object> map) {
         return baseService.update(map);
     }
 
@@ -68,7 +68,7 @@ public abstract class AbstractBiz<T extends BaseService> implements BaseBiz<T>  
      * @return
      * @throws Exception
      */
-    protected ResultInsertViewData insert(Map<String, Object> map) throws Exception {
+    protected ResultInsertViewData insert(Map<String, Object> map) {
         return baseService.insert(map);
     }
 
@@ -78,7 +78,7 @@ public abstract class AbstractBiz<T extends BaseService> implements BaseBiz<T>  
      * @return
      * @throws Exception
      */
-    protected ResultDeleteViewData delete(Long id) throws Exception {
+    protected ResultDeleteViewData delete(Long id) {
         return baseService.deleteOneById(id);
     }
 

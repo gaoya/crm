@@ -10,17 +10,17 @@ import java.util.Map;
  */
 public interface BaseService<T extends BaseMapper> {
 
-    ResultListViewData listAllByPageParam(Map<String, Object> map) throws Exception;
+    ResultListViewData listAllByPageParam(Map<String, Object> map);
 
-    ResultTotalViewData dataTotalCount(Map<String, Object> map) throws Exception;
+    ResultTotalViewData dataTotalCount(Map<String, Object> map);
 
-    ResultFindOneViewData findOneById(Long id) throws Exception;
+    ResultFindOneViewData findOneById(Long id);
 
-    ResultDeleteViewData deleteOneById(Long id) throws Exception;
+    ResultDeleteViewData deleteOneById(Long id);
 
-    ResultUpdateViewDate update(Map<String, Object> map) throws Exception;
+    ResultUpdateViewDate update(Map<String, Object> map);
 
-    ResultInsertViewData insert(Map<String, Object> map) throws Exception;
+    ResultInsertViewData insert(Map<String, Object> map);
 
 
 }

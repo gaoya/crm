@@ -2,7 +2,6 @@ package com.kyd.core.templete;
 
 import com.kyd.core.annonation.TltCls;
 import com.kyd.core.annonation.TltFld;
-import com.kyd.core.annonation.TltTime;
 import com.kyd.core.config.TltFile;
 import com.kyd.core.exception.TLtFileNotFoundException;
 import com.kyd.core.utils.AnnotationUtils;

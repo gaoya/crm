@@ -3,7 +3,6 @@ package com.kyd.entity;
 import com.kyd.core.annonation.TltCls;
 import com.kyd.core.annonation.TltFld;
 import com.kyd.core.annonation.TltTime;
-import lombok.Data;
 
 @TltCls(value = "AdminDept" ,table = "sys_admin" ,name = "AdminDept" ,author = "gss",requestMapping = "/adminDept" ,comments = "用户单位模块")
 public class AdminDeptEntity {

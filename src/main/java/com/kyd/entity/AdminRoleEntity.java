@@ -1,9 +1,5 @@
 package com.kyd.entity;
 
-import lombok.Data;
-
-import java.util.Date;
-
 public class AdminRoleEntity {
     private String id;
 

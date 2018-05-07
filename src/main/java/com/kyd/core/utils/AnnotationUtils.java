@@ -2,13 +2,15 @@ package com.kyd.core.utils;
 
 import com.kyd.core.exception.AnnotationNotFoundException;
 import com.kyd.core.exception.ClazzNotFoundException;
-import org.apache.commons.lang3.StringUtils;
 
 import java.lang.annotation.Annotation;
 
 public class AnnotationUtils {
 
-    public static Annotation annotation(Class clazz ,Class annotationClass) throws ClassNotFoundException, AnnotationNotFoundException, ClazzNotFoundException {
+    private AnnotationUtils() {
+    }
+
+    public static Annotation annotation(Class clazz , Class annotationClass) throws ClassNotFoundException, AnnotationNotFoundException, ClazzNotFoundException {
         if (clazz==null) {
             throw new ClazzNotFoundException();
         }
