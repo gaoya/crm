@@ -8,11 +8,11 @@ function initTable(_prefix) {
         layui.table.on('tool(tableLayFilter)', function (obj) {
             var data = obj.data;
             if (obj.event === 'detail') {
-                tableDetail(_prefix + '/detail/' + data.id);
+                tableDetail(_prefix + '/detailview/' + data.id);
             } else if (obj.event === 'del') {
                 tableDelete(_prefix,obj);
             } else if (obj.event === 'edit') {
-                tableEdit(_prefix + '/edit/' + data.id);
+                tableEdit(_prefix + '/editview/' + data.id);
             }
         });
 
@@ -27,7 +27,7 @@ function initTable(_prefix) {
             },
             //新建
             add: function () {
-                tableAdd(_prefix + "/add")
+                tableAdd(_prefix + "/addview")
             }
         };
 
@@ -95,10 +95,6 @@ function tableDelete( _suffix,_obj) {
             });
         }
 
-
-        // _obj.del();
-        // // window.parent.location.reload();
-        // layer.close(index);
     });
 }
 

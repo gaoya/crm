@@ -18,7 +18,8 @@
         <#--基本信息-->
             <form class="layui-form" action="" lay-filter="component-form-element">
             <#--id -->
-                <input type="hidden" id="id" name="id" value="${(data.id)!""}">
+                <input type="hidden" id="id" name="id" value="${(data.ID)!""}">
+                <input type="hidden" id="menuCode" name="menuCode" value="${(menuCode)!""}">
                 <input type="hidden" id="typeModel" name="typeModel" value="${(typeModel)!""}">
                 <div class="layui-card">
                     <div class="layui-card-header">基本信息</div>
@@ -31,9 +32,9 @@
                                         <#if typeModel=='add' || typeModel=='edit'>
                                             <input type="text" name="name" id="name" lay-verify="required"
                                                    placeholder=""
-                                                   autocomplete="off" class="layui-input" value="${(data.name)!""}">
+                                                   autocomplete="off" class="layui-input" value="${(data.NAME)!""}">
                                         <#else >
-                                            ${(data.name)!""}
+                                            ${(data.NAME)!""}
                                         </#if>
                                     </div>
                                 </div>
@@ -44,10 +45,10 @@
                                     <div class="layui-input-block">
                                         <#if typeModel=='add'|| typeModel=='edit'>
                                             <input type="text" name="age" id="age" lay-verify="required|number"
-                                                   placeholder="" value="${(data.age)!""}"
+                                                   placeholder="" value="${(data.AGE)!""}"
                                                    autocomplete="off" class="layui-input">
                                         <#else >
-                                            ${(data.age)!""}
+                                            ${(data.AGE)!""}
                                         </#if>
                                     </div>
                                 </div>
@@ -58,10 +59,10 @@
                                     <div class="layui-input-block">
                                         <#if typeModel=='add'|| typeModel=='edit'>
                                             <input type="text" name="phone" id="phone" lay-verify="required|number"
-                                                   placeholder="" value="${(data.phone)!""}"
+                                                   placeholder="" value="${(data.PHONE)!""}"
                                                    autocomplete="off" class="layui-input">
                                         <#else >
-                                            ${(data.phone)!""}
+                                            ${(data.PHONE)!""}
                                         </#if>
                                     </div>
                                 </div>
@@ -72,10 +73,10 @@
                                  <div class="layui-input-block">
                                     <#if typeModel=='add'|| typeModel=='edit'>
                                         <input type="text" name="address" id="address" lay-verify="required"
-                                               placeholder="" value="${(data.address)!""}"
+                                               placeholder="" value="${(data.ADDRESS)!""}"
                                                autocomplete="off" class="layui-input">
                                     <#else >
-                                        ${(data.address)!""}
+                                        ${(data.ADDRESS)!""}
                                     </#if>
                                  </div>
                              </div>
@@ -86,10 +87,10 @@
                                    <div class="layui-input-block">
                                         <#if typeModel=='add'|| typeModel=='edit'>
                                             <input type="text" name="email" id="email" lay-verify="required"
-                                                   placeholder="" value="${(data.email)!""}"
+                                                   placeholder="" value="${(data.EMAIL)!""}"
                                                    autocomplete="off" class="layui-input">
                                         <#else >
-                                            ${(data.email)!""}
+                                            ${(data.EMAIL)!""}
                                         </#if>
                                    </div>
                                </div>
@@ -100,10 +101,10 @@
                                     <div class="layui-input-block">
                                         <#if typeModel=='add'|| typeModel=='edit'>
                                             <input type="text" name="qq" id="qq" lay-verify="required"
-                                                   placeholder="" value="${(data.qq)!""}"
+                                                   placeholder="" value="${(data.QQ)!""}"
                                                    autocomplete="off" class="layui-input">
                                         <#else >
-                                            ${(data.qq)!""}
+                                            ${(data.QQ)!""}
                                         </#if>
                                     </div>
                                 </div>
@@ -116,7 +117,7 @@
                                     <input type="radio" name="useFlag" value="0" title="是" checked>
                                     <input type="radio" name="useFlag" value="1" title="否">
                                 <#else >
-                                    ${(data.useFlag)!""}
+                                    ${(data.USEFLAG)!""}
                                 </#if>
                                 </div>
                             </div>
@@ -129,7 +130,7 @@
                                     <input type="radio" name="delFlag" value="0" title="是" checked>
                                     <input type="radio" name="delFlag" value="1" title="否">
                                 <#else >
-                                    ${(data.delFlag)!""}
+                                    ${(data.DELFLAG)!""}
                                 </#if>
                                 </div>
                             </div>
@@ -140,10 +141,10 @@
                                 <div class="layui-input-block">
                                 <#if typeModel=='add'|| typeModel=='edit'>
                                     <input type="text" name="createUser" id="createUser" lay-verify="required"
-                                           placeholder="" value="${(data.createUser)!""}"
+                                           placeholder="" value="${(data.CREATEUSER)!""}"
                                            autocomplete="off" class="layui-input">
                                 <#else >
-                                    ${(data.createUser)!""}
+                                    ${(data.CREATEUSER)!""}
                                 </#if>
                                 </div>
                             </div>
@@ -154,10 +155,10 @@
                                 <div class="layui-input-block">
                                 <#if typeModel=='add'|| typeModel=='edit'>
                                     <input type="text" name="createTime" id="createTime" lay-verify="required"
-                                           placeholder="" value="${(data.createTime)!""}"
+                                           placeholder="" value="${(data.CREATETIME)!""}"
                                            autocomplete="off" class="layui-input">
                                 <#else >
-                                    ${(data.createTime)!""}
+                                    ${(data.CREATETIME)!""}
                                 </#if>
                                 </div>
                             </div>
@@ -169,9 +170,9 @@
                                 <#if typeModel=='add'|| typeModel=='edit'>
                                        <textarea name="other" style="height: 200px" id="remark" name="remark"
                                                  placeholder=""
-                                                 class="layui-textarea">${(data.remark)!""}</textarea>
+                                                 class="layui-textarea">${(data.REMARK)!""}</textarea>
                                 <#else >
-                                    ${(data.remark)!""}
+                                    ${(data.REMARK)!""}
                                 </#if>
                                    </div>
                                </div>
@@ -204,8 +205,9 @@
         // 数据提交
         form.on('submit(component-form-element)', function (data) {
             var typeModel = $("#typeModel").val();
+            var menuCode = $("#menuCode").val();
             $.ajax({
-                url: '/' + typeModel + '/insert',
+                url: '/' + menuCode + '/' + typeModel,
                 data: JSON.parse(JSON.stringify(data.field)),
                 type: 'post',
                 success: function(result) {
@@ -220,7 +222,6 @@
                 error: function (result) {
 
                 }
-
             })
 
             return false;
@@ -230,9 +231,6 @@
             var index = parent.layer.getFrameIndex(window.name);
             parent.layer.close(index);
         })
-
-
-
     });
 </script>
 </body>

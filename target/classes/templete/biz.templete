@@ -66,21 +66,21 @@ public class [class]Biz extends AbstractBiz<[class]Service> implements BaseBiz<[
     }
 
     @ApiOperation("修改数据信息")
-    @RequestMapping(value = "/update",method = RequestMethod.POST)
+    @RequestMapping(value = "/edit",method = RequestMethod.POST)
     @ApiImplicitParams({
             [for][params]###@ApiImplicitParam(name = "[name]",value = "[commonts]")[comma][/for]
     })
-    protected ResultUpdateViewDate update() throws Exception {
+    protected ResultUpdateViewDate edit() throws Exception {
          Map<String, Object> param = bizUtils.requestToMap(request);
         return super.update(param);
     }
 
     @ApiOperation("新增数据信息")
-    @RequestMapping(value = "insert",method = RequestMethod.POST)
+    @RequestMapping(value = "add",method = RequestMethod.POST)
     @ApiImplicitParams({
            [for][params]###@ApiImplicitParam(name = "[name]",value = "[commonts]")[comma][/for]
     })
-    protected ResultInsertViewData insert() throws Exception {
+    protected ResultInsertViewData add() throws Exception {
          Map<String, Object> param = bizUtils.requestToMap(request);
         return super.insert(param);
     }
@@ -110,19 +110,19 @@ public class [class]Biz extends AbstractBiz<[class]Service> implements BaseBiz<[
         }
 
 
-        @RequestMapping("/add")
+        @RequestMapping("/addview")
         protected ModelAndView addView() {
             ModelAndView modelAndView = super.newView(TYPE_MODEL);
             return modelAndView;
         }
 
-        @RequestMapping("/edit/{id}")
+        @RequestMapping("/editview/{id}")
         protected ModelAndView editView(@PathVariable("id") Long id) {
-            ModelAndView modelAndView = super.updateView(TYPE_MODEL, id);
+            ModelAndView modelAndView = super.eidtView(TYPE_MODEL, id);
             return modelAndView;
         }
 
-        @RequestMapping("/detail/{id}")
+        @RequestMapping("/detailview/{id}")
         protected ModelAndView detailView(@PathVariable("id") Long id) {
             ModelAndView modelAndView = super.detailView(TYPE_MODEL, id);
             return modelAndView;

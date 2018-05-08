@@ -152,7 +152,7 @@
             <if test="id!=null and id!=''">id=#{id},</if>
             <if test="name!=null and name!=''">name=#{name},</if>
             <if test="age!=null and age!=''">age=#{age},</if>
-            <if test="phone!=null ang phone!=''">phone=#{phone},</if>
+            <if test="phone!=null and phone!=''">phone=#{phone},</if>
             <if test="address!=null and address!=''">address=#{address},</if>
             <if test="email!=null and email!=''">email=#{email},</if>
             <if test="qq!=null and qq!=''">qq=#{qq},</if>

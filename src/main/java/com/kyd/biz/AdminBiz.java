@@ -96,7 +96,7 @@ public class AdminBiz extends AbstractBiz<AdminService> implements BaseBiz<Admin
 
     @ApiOperation("修改数据信息")
     @ResponseBody
-    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
     @ApiImplicitParams({
             @ApiImplicitParam(name = "id", value = "id"),
             @ApiImplicitParam(name = "name", value = "姓名"),
@@ -112,14 +112,14 @@ public class AdminBiz extends AbstractBiz<AdminService> implements BaseBiz<Admin
             @ApiImplicitParam(name = "delFlag", value = "是否删除")
 
     })
-    protected ResultUpdateViewDate update()  {
+    protected ResultUpdateViewDate edit()  {
         Map<String, Object> map = bizUtils.requestToMap(request);
         return super.update(map);
     }
 
     @ApiOperation("新增数据信息")
     @ResponseBody
-    @RequestMapping(value = "insert", method = RequestMethod.POST)
+    @RequestMapping(value = "add", method = RequestMethod.POST)
     @ApiImplicitParams({
             @ApiImplicitParam(name = "id", value = "id"),
             @ApiImplicitParam(name = "name", value = "姓名"),
@@ -135,7 +135,7 @@ public class AdminBiz extends AbstractBiz<AdminService> implements BaseBiz<Admin
             @ApiImplicitParam(name = "delFlag", value = "是否删除")
 
     })
-    protected ResultInsertViewData insert() {
+    protected ResultInsertViewData add() {
         Map<String, Object> map = bizUtils.requestToMap(request);
         return super.insert(map);
     }
@@ -165,29 +165,27 @@ public class AdminBiz extends AbstractBiz<AdminService> implements BaseBiz<Admin
     }
 
 
-    @RequestMapping("/add")
+    @RequestMapping("/addview")
     protected ModelAndView addView() {
         ModelAndView modelAndView = super.newView(TYPE_MODEL);
         return modelAndView;
     }
 
-    @RequestMapping("/edit/{id}")
+    @RequestMapping("/editview/{id}")
     protected ModelAndView editView(@PathVariable("id") Long id) {
         ModelAndView modelAndView = null;
         if (id > 0) {
-            modelAndView = super.updateView(TYPE_MODEL,id);
+            modelAndView = super.editView(TYPE_MODEL,id);
         }
-
         return modelAndView;
     }
 
-    @RequestMapping("/detail/{id}")
+    @RequestMapping("/detailview/{id}")
     protected ModelAndView detailView(@PathVariable("id") Long id) {
         ModelAndView modelAndView = null;
         if (id > 0) {
             modelAndView = super.detailView(TYPE_MODEL, id);
         }
-
         return modelAndView;
     }
 

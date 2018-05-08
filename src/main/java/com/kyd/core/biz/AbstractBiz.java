@@ -106,6 +106,7 @@ public abstract class AbstractBiz<T extends BaseService> implements BaseBiz<T>  
         List<Map<String, Object>> paramsData =bizUtils.paramsList(menuCode, "0","p_add");
         modelAndview.addObject(PARAMS_DATA_KEY,paramsData);
         modelAndview.addObject(TYPE_MODEL_KEY,"add");
+        modelAndview.addObject("menuCode",menuCode);
         return modelAndview;
     }
 
@@ -113,12 +114,13 @@ public abstract class AbstractBiz<T extends BaseService> implements BaseBiz<T>  
      * 修改页面的View
      * @return
      */
-    protected ModelAndView updateView(String menuCode, Long id) {
+    protected ModelAndView editView(String menuCode, Long id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("data", oneData(id));
         List<Map<String, Object>> paramsData = bizUtils.paramsList(menuCode,"0","p_update");
         modelAndView.addObject(PARAMS_DATA_KEY,paramsData);
         modelAndView.addObject(TYPE_MODEL_KEY,"edit");
+        modelAndView.addObject("menuCode",menuCode);
         modelAndView.setViewName(viewPath(menuCode));
         return modelAndView;
     }
@@ -134,6 +136,7 @@ public abstract class AbstractBiz<T extends BaseService> implements BaseBiz<T>  
         List<Map<String, Object>> paramsData = bizUtils.paramsList(menuCode,"0","p_detail");
         modelAndView.addObject(PARAMS_DATA_KEY,paramsData);
         modelAndView.addObject(TYPE_MODEL_KEY,"detail");
+        modelAndView.addObject("menuCode",menuCode);
         return modelAndView;
     }
 
@@ -155,8 +158,6 @@ public abstract class AbstractBiz<T extends BaseService> implements BaseBiz<T>  
      * @return
      */
     private String viewPath(String menuCode){
-
-
         return COMMON_ROOT_VIEW + "/" + menuCode + "/" + "tableView";
     }
 
