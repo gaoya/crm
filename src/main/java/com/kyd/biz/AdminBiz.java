@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,6 +20,8 @@ import java.util.Map;
 @RequestMapping("/admin")
 @Api(value = "系统用户表")
 public class AdminBiz extends AbstractBiz<AdminService> implements BaseBiz<AdminService> {
+
+    private static final String TYPE_MODEL = "admin";
 
     /**
      * 分页查询数据
@@ -44,7 +47,7 @@ public class AdminBiz extends AbstractBiz<AdminService> implements BaseBiz<Admin
     @ResponseBody
     @RequestMapping(value = "/list")
 
-    protected ResultListViewData list() throws Exception {
+    protected ResultListViewData list() {
         Map<String, Object> param = bizUtils.requestToMap(request);
         return super.list(param);
     }
@@ -53,7 +56,6 @@ public class AdminBiz extends AbstractBiz<AdminService> implements BaseBiz<Admin
      * 查询总共数据量
      *
      * @return
-     * @throws Exception
      */
     @ApiOperation("查询数据总量")
     @RequestMapping(value = "/total", method = RequestMethod.POST)
@@ -72,7 +74,7 @@ public class AdminBiz extends AbstractBiz<AdminService> implements BaseBiz<Admin
             @ApiImplicitParam(name = "delFlag", value = "是否删除")
 
     })
-    protected ResultTotalViewData dataTotalCount() throws Exception {
+    protected ResultTotalViewData dataTotalCount() {
         Map<String, Object> map = bizUtils.requestToMap(request);
         return super.dataTotalCount(map);
     }
@@ -93,6 +95,7 @@ public class AdminBiz extends AbstractBiz<AdminService> implements BaseBiz<Admin
     }
 
     @ApiOperation("修改数据信息")
+    @ResponseBody
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ApiImplicitParams({
             @ApiImplicitParam(name = "id", value = "id"),
@@ -109,12 +112,13 @@ public class AdminBiz extends AbstractBiz<AdminService> implements BaseBiz<Admin
             @ApiImplicitParam(name = "delFlag", value = "是否删除")
 
     })
-    protected ResultUpdateViewDate update() throws Exception {
+    protected ResultUpdateViewDate update()  {
         Map<String, Object> map = bizUtils.requestToMap(request);
         return super.update(map);
     }
 
     @ApiOperation("新增数据信息")
+    @ResponseBody
     @RequestMapping(value = "insert", method = RequestMethod.POST)
     @ApiImplicitParams({
             @ApiImplicitParam(name = "id", value = "id"),
@@ -131,7 +135,7 @@ public class AdminBiz extends AbstractBiz<AdminService> implements BaseBiz<Admin
             @ApiImplicitParam(name = "delFlag", value = "是否删除")
 
     })
-    protected ResultInsertViewData insert() throws Exception {
+    protected ResultInsertViewData insert() {
         Map<String, Object> map = bizUtils.requestToMap(request);
         return super.insert(map);
     }
@@ -145,21 +149,45 @@ public class AdminBiz extends AbstractBiz<AdminService> implements BaseBiz<Admin
         return super.delete(id);
     }
 
+    /**
+     *
+     * 批量删除数据
+     *  id 集合信息 使用 ，进行fenge
+     * @return
+     */
+    @ApiOperation("批量删除数据")
+    @ApiImplicitParam(paramType = "query",name = "ids",value = "主键集合，使用逗号（,）分割")
+    @ResponseBody
+    @RequestMapping("/batchDelete")
+    protected ResultDeleteViewData batchDelete() {
+        String ids =  request.getParameter("ids");
+        return super.batchDelete(ids);
+    }
+
+
     @RequestMapping("/add")
     protected ModelAndView addView() {
-        ModelAndView modelAndView = super.newView("admin");
+        ModelAndView modelAndView = super.newView(TYPE_MODEL);
         return modelAndView;
     }
 
     @RequestMapping("/edit/{id}")
-    protected ModelAndView editView(@PathVariable("id") Long id) throws Exception {
-        ModelAndView modelAndView = super.updateView("admin", id);
+    protected ModelAndView editView(@PathVariable("id") Long id) {
+        ModelAndView modelAndView = null;
+        if (id > 0) {
+            modelAndView = super.updateView(TYPE_MODEL,id);
+        }
+
         return modelAndView;
     }
 
     @RequestMapping("/detail/{id}")
-    protected ModelAndView detailView(@PathVariable("id") Long id) throws Exception {
-        ModelAndView modelAndView = super.detailView("admin", id);
+    protected ModelAndView detailView(@PathVariable("id") Long id) {
+        ModelAndView modelAndView = null;
+        if (id > 0) {
+            modelAndView = super.detailView(TYPE_MODEL, id);
+        }
+
         return modelAndView;
     }
 

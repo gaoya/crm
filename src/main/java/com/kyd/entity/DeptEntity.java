@@ -1,7 +1,5 @@
 package com.kyd.entity;
 
-import lombok.Data;
-
 public class DeptEntity {
     private String id="id";
 

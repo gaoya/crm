@@ -11,9 +11,8 @@
         INSERT  INTO
         sys_admin
         (
-            id,
             name,
-            name,
+            age,
             phone,
             address,
             email,
@@ -27,7 +26,6 @@
         )
         VALUES
         (
-            #{id},
             #{name},
             #{age},
             #{phone},
@@ -120,7 +118,7 @@
     <sql id="COLUMN_SQL">
         id as id,
         name as name,
-        name as age,
+        age as age,
         phone as phone,
         address as address,
         email as email,
@@ -136,7 +134,7 @@
     <sql id="WHERE_SQL">
         <if test="id != null and id!=''">AND id = #{id}</if>
         <if test="name != null and name!=''">AND name = #{name}</if>
-        <if test="age != null and age!=''">AND name = #{age}</if>
+        <if test="age != null and age!=''">AND age = #{age}</if>
         <if test="phone != null and phone!=''">AND phone = #{phone}</if>
         <if test="address != null and address!=''">AND address = #{address}</if>
         <if test="email != null and email!=''">AND email = #{email}</if>
@@ -153,7 +151,7 @@
         <set>
             <if test="id!=null and id!=''">id=#{id},</if>
             <if test="name!=null and name!=''">name=#{name},</if>
-            <if test="age!=null and age!=''">name=#{age},</if>
+            <if test="age!=null and age!=''">age=#{age},</if>
             <if test="phone!=null ang phone!=''">phone=#{phone},</if>
             <if test="address!=null and address!=''">address=#{address},</if>
             <if test="email!=null and email!=''">email=#{email},</if>

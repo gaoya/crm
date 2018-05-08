@@ -18,9 +18,12 @@ public interface BaseService<T extends BaseMapper> {
 
     ResultDeleteViewData deleteOneById(Long id);
 
+    ResultDeleteViewData batchDeleteByIds (String ids);
+
     ResultUpdateViewDate update(Map<String, Object> map);
 
     ResultInsertViewData insert(Map<String, Object> map);
+
 
 
 }

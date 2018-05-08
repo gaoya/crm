@@ -8,18 +8,18 @@ function initTable(_prefix) {
         layui.table.on('tool(tableLayFilter)', function (obj) {
             var data = obj.data;
             if (obj.event === 'detail') {
-                tableDetail(_prefix + '/detail');
+                tableDetail(_prefix + '/detail/' + data.id);
             } else if (obj.event === 'del') {
                 tableDelete(_prefix,obj);
             } else if (obj.event === 'edit') {
-                tableEdit(_prefix + '/edit');
+                tableEdit(_prefix + '/edit/' + data.id);
             }
         });
 
         var $ = layui.$, active = {
             // 批量删除数据
             batchDel: function() {
-                tableBatchDelete('tableData');
+                tableBatchDelete(_prefix, 'tableData');
             } ,
             //重新加载
             reload: function () {
@@ -92,7 +92,7 @@ function tableDelete( _suffix,_obj) {
                 },error: function(resp){
                     layer.msg("通讯失败",{icon:2});
                 }
-            })
+            });
         }
 
 
@@ -105,7 +105,7 @@ function tableDelete( _suffix,_obj) {
 /**
  * 批量删除数据
  */
-function tableBatchDelete(_tableData) {
+function tableBatchDelete(_suffix, _tableData) {
     var table = layui.table;
     var checkStatus = table.checkStatus(_tableData);
     var checkData = checkStatus.data;       // 删除的数据
@@ -113,7 +113,33 @@ function tableBatchDelete(_tableData) {
         layer.msg('请选择需要删除的数据！');
     }else {
         layer.confirm('是否删除批量数据?',function (index) {
-            layer.alert(JSON.stringify(checkData));
+            var ids = '';
+            //batchDelete
+            $.map(checkData,function(c){
+                console.log(c['id'])
+                ids += c['id'] + ',';
+            });
+            $.ajax({
+                url:  _suffix + "/batchDelete" ,
+                data: {
+                    ids: ids
+                },
+                type: 'post',
+                success: function(result){
+                    if (result.deleteCount>0){
+                        layer.msg("删除数据成功",{icon:1},function () {
+                            location.reload();
+                            layer.close(index);
+                        });
+                    }else {
+                        layer.msg("删除数据失败",{icon:2});
+                    }
+
+                },error: function(resp){
+                    layer.msg("通讯失败",{icon:2});
+                }
+            })
+
         })
     }
 

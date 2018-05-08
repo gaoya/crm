@@ -3,7 +3,6 @@ package com.kyd.entity;
 import com.kyd.core.annonation.TltCls;
 import com.kyd.core.annonation.TltFld;
 import com.kyd.core.annonation.TltTime;
-import lombok.Data;
 
 import java.util.Date;
 @TltCls(name = "Menu",requestMapping = "menu",author = "gss",comments = "菜单表",table = "sys_menu")

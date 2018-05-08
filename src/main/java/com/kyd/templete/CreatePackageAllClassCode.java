@@ -10,7 +10,6 @@ public class CreatePackageAllClassCode {
     public static final String PARENT_PACKAGE = "com.kyd";
 
     public static void main(String[] args)  throws Exception{
-//        createClassInPackage();
         createByEntity(ShowParamEntity.class);
     }
 

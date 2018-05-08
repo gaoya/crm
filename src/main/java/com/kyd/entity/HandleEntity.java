@@ -2,7 +2,6 @@ package com.kyd.entity;
 
 import com.kyd.core.annonation.TltCls;
 import com.kyd.core.annonation.TltFld;
-import lombok.Data;
 
 import java.util.Date;
 

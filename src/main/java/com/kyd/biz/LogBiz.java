@@ -40,7 +40,7 @@ public class LogBiz extends AbstractBiz<LogService> implements BaseBiz<LogServic
 
     })
     @RequestMapping(value = "/list", method = RequestMethod.POST)
-    protected ResultListViewData list() throws Exception {
+    protected ResultListViewData list() {
         Map<String, Object> param = bizUtils.requestToMap(request);
         return super.list(param);
     }
@@ -65,7 +65,7 @@ public class LogBiz extends AbstractBiz<LogService> implements BaseBiz<LogServic
             @ApiImplicitParam(name = "remark", value = "备注")
 
     })
-    protected ResultTotalViewData dataTotalCount() throws Exception {
+    protected ResultTotalViewData dataTotalCount() {
         Map<String, Object> param = bizUtils.requestToMap(request);
         return super.dataTotalCount(param);
     }
@@ -99,7 +99,7 @@ public class LogBiz extends AbstractBiz<LogService> implements BaseBiz<LogServic
             @ApiImplicitParam(name = "remark", value = "备注")
 
     })
-    protected ResultUpdateViewDate update() throws Exception {
+    protected ResultUpdateViewDate update() {
         Map<String, Object> param = bizUtils.requestToMap(request);
         return super.update(param);
     }
@@ -118,7 +118,7 @@ public class LogBiz extends AbstractBiz<LogService> implements BaseBiz<LogServic
             @ApiImplicitParam(name = "remark", value = "备注")
 
     })
-    protected ResultInsertViewData insert() throws Exception {
+    protected ResultInsertViewData insert() {
         Map<String, Object> param = bizUtils.requestToMap(request);
         return super.insert(param);
     }

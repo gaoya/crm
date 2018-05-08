@@ -4,6 +4,9 @@ package com.kyd.core.config;
  * 生成代码模板的常量配置
  */
 public class TltConfiguration {
+    private TltConfiguration() {
+    }
+
     // annotation 忽略的方法
     public final static String ANNOTATION_IGNORE_METHOD_EQUALS="equals";
     public final static String ANNOTATION_IGNORE_METHOD_HASHCODE="hashCode";

@@ -4,6 +4,7 @@ import com.kyd.core.dao.BaseMapper;
 import com.kyd.core.dto.*;
 import com.kyd.core.utils.DateTimeUtils;
 import com.kyd.core.utils.PageUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
@@ -137,6 +138,32 @@ public class CoreServiceImpl<T extends BaseMapper> implements BaseService<T> {
         result.setMethodName("deleteOneById");
         result.setResultTime(DateTimeUtils.now(DateTimeUtils.FULL_DATE));
         if (count >= 1) {
+            resultEnum = ResultEnum.RESULT_DELETE_SUCCESS;
+        } else {
+            resultEnum = ResultEnum.RESULT_DELETE_FAIL;
+        }
+        result.setCode(resultEnum.code());
+        result.setMsg(resultEnum.msg());
+        return result;
+    }
+
+    @Override
+    public ResultDeleteViewData batchDeleteByIds(String ids) {
+        Long sum = 0L ;
+        for (String id : ids.split(",")) {
+            if (StringUtils.isNotEmpty(id) && id.matches("^[0-9]+$")) {
+                Long count = baseMapper.deleteById(Long.parseLong(id));
+                sum += count;
+            }
+        }
+        ResultDeleteViewData result = new ResultDeleteViewData();
+        result.setClassName(this.getClass().getSimpleName());
+        result.setMethodName("findOneById");
+        result.setDeleteCount(sum);
+        result.setClassName(this.getClass().getSimpleName());
+        result.setMethodName("deleteOneById");
+        result.setResultTime(DateTimeUtils.now(DateTimeUtils.FULL_DATE));
+        if (sum >= 1) {
             resultEnum = ResultEnum.RESULT_DELETE_SUCCESS;
         } else {
             resultEnum = ResultEnum.RESULT_DELETE_FAIL;

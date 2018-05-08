@@ -2,19 +2,18 @@ package com.kyd.core.biz;
 
 import com.kyd.core.dto.*;
 import com.kyd.core.service.BaseService;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public abstract class AbstractBiz<T extends BaseService> implements BaseBiz<T>  {
 
-    protected final static String COMMON_ROOT_VIEW = "view";
+    protected static final String COMMON_ROOT_VIEW = "view";
+    public static final String TYPE_MODEL_KEY = "typeModel";
+    public static final String PARAMS_DATA_KEY = "paramsData";
 
     @Autowired
     protected T baseService;
@@ -82,6 +81,11 @@ public abstract class AbstractBiz<T extends BaseService> implements BaseBiz<T>  
         return baseService.deleteOneById(id);
     }
 
+
+    protected ResultDeleteViewData batchDelete(String ids) {
+        return baseService.batchDeleteByIds(ids);
+    }
+
     /**
      * 得到一个baseService 的试下
      * @return
@@ -98,10 +102,10 @@ public abstract class AbstractBiz<T extends BaseService> implements BaseBiz<T>  
      */
     protected ModelAndView newView(String menuCode) {
         ModelAndView modelAndview = new ModelAndView();
-        modelAndview.setViewName(viewPath());
+        modelAndview.setViewName(viewPath(menuCode));
         List<Map<String, Object>> paramsData =bizUtils.paramsList(menuCode, "0","p_add");
-        modelAndview.addObject("paramsData",paramsData);
-        modelAndview.addObject("typeModel","add");
+        modelAndview.addObject(PARAMS_DATA_KEY,paramsData);
+        modelAndview.addObject(TYPE_MODEL_KEY,"add");
         return modelAndview;
     }
 
@@ -109,13 +113,13 @@ public abstract class AbstractBiz<T extends BaseService> implements BaseBiz<T>  
      * 修改页面的View
      * @return
      */
-    protected ModelAndView updateView(String menuCode, Long id) throws Exception {
+    protected ModelAndView updateView(String menuCode, Long id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("data", oneData(id));
         List<Map<String, Object>> paramsData = bizUtils.paramsList(menuCode,"0","p_update");
-        modelAndView.addObject("paramsData",paramsData);
-        modelAndView.addObject("typeModel","edit");
-        modelAndView.setViewName(viewPath());
+        modelAndView.addObject(PARAMS_DATA_KEY,paramsData);
+        modelAndView.addObject(TYPE_MODEL_KEY,"edit");
+        modelAndView.setViewName(viewPath(menuCode));
         return modelAndView;
     }
 
@@ -123,13 +127,13 @@ public abstract class AbstractBiz<T extends BaseService> implements BaseBiz<T>  
      * 详情页面的View
      * @return
      */
-    protected ModelAndView detailView(String menuCode, Long id) throws Exception {
+    protected ModelAndView detailView(String menuCode, Long id) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName(viewPath());
+        modelAndView.setViewName(viewPath(menuCode));
         modelAndView.addObject("data",oneData(id));
         List<Map<String, Object>> paramsData = bizUtils.paramsList(menuCode,"0","p_detail");
-        modelAndView.addObject("paramsData",paramsData);
-        modelAndView.addObject("typeModel","detail");
+        modelAndView.addObject(PARAMS_DATA_KEY,paramsData);
+        modelAndView.addObject(TYPE_MODEL_KEY,"detail");
         return modelAndView;
     }
 
@@ -138,19 +142,22 @@ public abstract class AbstractBiz<T extends BaseService> implements BaseBiz<T>  
      * 得到一个数据
      * @return
      */
-    private Map<String, Object> oneData(Long id) throws Exception {
-        ResultFindOneViewData data = baseService.findOneById(id);
-        Map<String, Object> map = data.getData();
-        return map;
+    private Map<String, Object> oneData(Long id) {
+        if (id == null || id < 0L) {
+            return  null ;
+        }
+        ResultFindOneViewData resultFindOneViewData = baseService.findOneById(id);
+        return resultFindOneViewData.getData();
     }
 
     /**
      * 得到view的路径
      * @return
      */
-    private String viewPath(){
-        String url = request.getRequestURI();
-        return COMMON_ROOT_VIEW + url;
+    private String viewPath(String menuCode){
+
+
+        return COMMON_ROOT_VIEW + "/" + menuCode + "/" + "tableView";
     }
 
 }

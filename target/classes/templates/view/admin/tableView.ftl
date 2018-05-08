@@ -19,6 +19,7 @@
             <form class="layui-form" action="" lay-filter="component-form-element">
             <#--id -->
                 <input type="hidden" id="id" name="id" value="${(data.id)!""}">
+                <input type="hidden" id="typeModel" name="typeModel" value="${(typeModel)!""}">
                 <div class="layui-card">
                     <div class="layui-card-header">基本信息</div>
                     <div class="layui-card-body">
@@ -179,8 +180,11 @@
                         </#list>
                         <div class="layui-form-item">
                             <div class="layui-input-block">
-                                <button class="layui-btn" lay-submit lay-filter="component-form-element">立即提交</button>
-                                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                                <#if typeModel=='add'|| typeModel=='edit'>
+                                    <button class="layui-btn" lay-submit lay-filter="component-form-element">立即提交</button>
+                                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                               </#if>
+                                <button type="button" class="layui-btn" id="close">关闭</button>
                             </div>
                         </div>
                     </div>
@@ -189,7 +193,6 @@
         </div>
     </div>
 </div>
-
 
 <script src="/static/component/lib/layui/layui.js"></script>
 <script>
@@ -200,13 +203,19 @@
                 , form = layui.form;
         // 数据提交
         form.on('submit(component-form-element)', function (data) {
-            layer.msg(JSON.stringify(data.field));
+            var typeModel = $("#typeModel").val();
             $.ajax({
-                url: '/admin/insert',
+                url: '/' + typeModel + '/insert',
                 data: JSON.parse(JSON.stringify(data.field)),
                 type: 'post',
                 success: function(result) {
-                    layer.msg(result);
+                    if (result.code == '0') {
+                        layer.msg('保存成功!',{icon:1},function () {
+                            window.parent.location.reload();
+                            var index = parent.layer.getFrameIndex(window.name);
+                            parent.layer.close(index);
+                        })
+                    }
                 },
                 error: function (result) {
 
@@ -216,6 +225,14 @@
 
             return false;
         });
+
+        $("#close").click(function () {
+            var index = parent.layer.getFrameIndex(window.name);
+            parent.layer.close(index);
+        })
+
+
+
     });
 </script>
 </body>

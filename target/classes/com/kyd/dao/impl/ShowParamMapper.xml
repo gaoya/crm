@@ -145,7 +145,7 @@
         SYS_SHOW_PARAM
         where
         ${pType} = #{pTypeValue}
-        and menu_code = #{menuCode}
+        and (menu_code = #{menuCode} or menu_code = lower(#{menuCode}))
     </select>
 
     <sql id="COLUMN_SQL">

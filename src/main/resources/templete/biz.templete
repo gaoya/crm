@@ -18,6 +18,8 @@ import java.util.Map;
 @Api(value = "[classComment]")
 public class [class]Biz extends AbstractBiz<[class]Service> implements BaseBiz<[class]Service> {
 
+    private static final String TYPE_MODEL = "[class]";
+
     /**
      * 分页查询数据
      * @return
@@ -83,6 +85,7 @@ public class [class]Biz extends AbstractBiz<[class]Service> implements BaseBiz<[
         return super.insert(param);
     }
 
+    @ResponseBody
     @ApiOperation("删除数据信息")
     @ApiImplicitParam(paramType = "query",name = "id",value = "主键")
     @RequestMapping(value = "/delete/{id}",method = {RequestMethod.GET,RequestMethod.POST})
@@ -90,4 +93,40 @@ public class [class]Biz extends AbstractBiz<[class]Service> implements BaseBiz<[
     protected ResultDeleteViewData delete(@PathVariable("id") Long id) throws Exception {
         return super.delete( id);
     }
+
+    /**
+         *
+         * 批量删除数据
+         *  id 集合信息 使用 ，进行fenge
+         * @return
+         */
+        @ApiOperation("批量删除数据")
+        @ApiImplicitParam(paramType = "query",name = "ids",value = "主键集合，使用逗号（,）分割")
+        @ResponseBody
+        @RequestMapping("/batchDelete")
+        protected ResultDeleteViewData batchDelete() {
+            String ids =  request.getParameter("ids");
+            return super.batchDelete(ids);
+        }
+
+
+        @RequestMapping("/add")
+        protected ModelAndView addView() {
+            ModelAndView modelAndView = super.newView(TYPE_MODEL);
+            return modelAndView;
+        }
+
+        @RequestMapping("/edit/{id}")
+        protected ModelAndView editView(@PathVariable("id") Long id) {
+            ModelAndView modelAndView = super.updateView(TYPE_MODEL, id);
+            return modelAndView;
+        }
+
+        @RequestMapping("/detail/{id}")
+        protected ModelAndView detailView(@PathVariable("id") Long id) {
+            ModelAndView modelAndView = super.detailView(TYPE_MODEL, id);
+            return modelAndView;
+        }
+
+
 }

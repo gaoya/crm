@@ -6,6 +6,8 @@ import static com.kyd.core.templete.TltFileType.*;
  * 通过文件包生成文件
  */
 public class CreateCodeFile {
+    private CreateCodeFile() {
+    }
 
     public static void batchAllCodeByPackage(String packageName) throws Exception{
         batchDaoAndDaoXml(packageName);
