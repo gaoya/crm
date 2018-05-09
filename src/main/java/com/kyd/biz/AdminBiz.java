@@ -114,7 +114,7 @@ public class AdminBiz extends AbstractBiz<AdminService> implements BaseBiz<Admin
     })
     protected ResultUpdateViewDate edit()  {
         Map<String, Object> map = bizUtils.requestToMap(request);
-        return super.update(map);
+        return super.edit(map);
     }
 
     @ApiOperation("新增数据信息")

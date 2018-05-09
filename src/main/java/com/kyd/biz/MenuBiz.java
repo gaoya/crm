@@ -107,7 +107,7 @@ public class MenuBiz extends AbstractBiz<MenuService> implements BaseBiz<MenuSer
     })
     protected ResultUpdateViewDate update() {
         Map<String, Object> param = bizUtils.requestToMap(request);
-        return super.update(param);
+        return super.edit(param);
     }
 
     @ApiOperation("新增数据信息")

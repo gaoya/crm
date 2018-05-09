@@ -98,7 +98,7 @@ public class HandleBiz extends AbstractBiz<HandleService> implements BaseBiz<Han
     })
     protected ResultUpdateViewDate update() {
         Map<String, Object> param = bizUtils.requestToMap(request);
-        return super.update(param);
+        return super.edit(param);
     }
 
     @ApiOperation("新增数据信息")

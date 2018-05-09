@@ -92,7 +92,7 @@ public class AdminDeptBiz extends AbstractBiz<AdminDeptService> implements BaseB
     })
     protected ResultUpdateViewDate update() {
         Map<String, Object> param = bizUtils.requestToMap(request);
-        return super.update(param);
+        return super.edit(param);
     }
 
     @ApiOperation("新增数据信息")

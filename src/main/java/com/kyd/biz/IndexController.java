@@ -55,8 +55,8 @@ public class IndexController {
     public ModelAndView list(HttpServletRequest request, HttpServletResponse response, @PathVariable("suffix") String suffix) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/index/list");
-        List<Map<String, Object>> searchData = bizUtils.paramsList("admin", "0", "p_search");
-        List<Map<String, Object>> titleData = bizUtils.paramsList("admin", "0", "p_list");
+        List<Map<String, Object>> searchData = bizUtils.paramsList(suffix, "0", "p_search");
+        List<Map<String, Object>> titleData = bizUtils.paramsList(suffix, "0", "p_list");
 
         modelAndView.addObject("searchData", searchData);
         modelAndView.addObject("titleData", titleData);

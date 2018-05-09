@@ -13,6 +13,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -195,7 +196,7 @@ public class CodeContent {
      * @return
      */
     private String lineReplaceStr(String resLine, Method[] declaredMethods,
-                                  TltFld tltFld,Field field) throws Exception {
+                                  TltFld tltFld,Field field) throws InvocationTargetException, IllegalAccessException {
         String templeteFileType = tltFile.getType();
         for (Method method : declaredMethods) {
             method.setAccessible(true);

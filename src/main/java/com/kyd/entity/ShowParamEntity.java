@@ -33,10 +33,6 @@ public   class   ShowParamEntity   {
     private String pUpdate ;//
     @TltFld(name="pUpdatedata" ,value="修改数据",commonts = "修改数据", column = "p_updatedata", author = "gss")
     private String pUpdatedata ;
-    @TltFld(name="pAddUpdateLabel" ,value="Add和Update的标签",commonts = "Add和Update的标签", column = "p_add_update_label", author = "gss")
-    private String pAddUpdateLabel;
-    @TltFld(name="pAddUpdateMsg" ,value="Add和update的提示信息",commonts = "Add和update的提示信息", column = "p_add_update_msg", author = "gss")
-    private String pAddUpdateMsg;
     @TltFld(name="pDel" ,value="删除参数",commonts = "删除参数", column = "p_del", author = "gss")
     private String pDel ;//
     @TltFld(name="pDetail" ,value="显示参数",commonts = "显示参数", column = "p_detail", author = "gss")
@@ -59,28 +55,12 @@ public   class   ShowParamEntity   {
     public ShowParamEntity() {
     }
 
-    public String getpAddUpdateMsg() {
-        return pAddUpdateMsg;
-    }
-
-    public void setpAddUpdateMsg(String pAddUpdateMsg) {
-        this.pAddUpdateMsg = pAddUpdateMsg;
-    }
-
     public String getpSearchdata() {
         return pSearchdata;
     }
 
     public void setpSearchdata(String pSearchdata) {
         this.pSearchdata = pSearchdata;
-    }
-
-    public String getpAddUpdateLabel() {
-        return pAddUpdateLabel;
-    }
-
-    public void setpAddUpdateLabel(String pAddUpdateLabel) {
-        this.pAddUpdateLabel = pAddUpdateLabel;
     }
 
     public String getpDetail() {
@@ -320,4 +300,5 @@ public   class   ShowParamEntity   {
     public void setpSearch(String pSearch) {
         this.pSearch = pSearch;
     }
+
 }

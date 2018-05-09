@@ -14,6 +14,7 @@ public abstract class AbstractBiz<T extends BaseService> implements BaseBiz<T>  
     protected static final String COMMON_ROOT_VIEW = "view";
     public static final String TYPE_MODEL_KEY = "typeModel";
     public static final String PARAMS_DATA_KEY = "paramsData";
+    public static final String MENU_CODE = "menuCode";
 
     @Autowired
     protected T baseService;
@@ -56,7 +57,7 @@ public abstract class AbstractBiz<T extends BaseService> implements BaseBiz<T>  
      * @param map
      * @return
      */
-    protected ResultUpdateViewDate update(Map<String, Object> map) {
+    protected ResultUpdateViewDate edit(Map<String, Object> map) {
         return baseService.update(map);
     }
 
@@ -106,7 +107,7 @@ public abstract class AbstractBiz<T extends BaseService> implements BaseBiz<T>  
         List<Map<String, Object>> paramsData =bizUtils.paramsList(menuCode, "0","p_add");
         modelAndview.addObject(PARAMS_DATA_KEY,paramsData);
         modelAndview.addObject(TYPE_MODEL_KEY,"add");
-        modelAndview.addObject("menuCode",menuCode);
+        modelAndview.addObject(MENU_CODE,menuCode);
         return modelAndview;
     }
 
@@ -120,7 +121,7 @@ public abstract class AbstractBiz<T extends BaseService> implements BaseBiz<T>  
         List<Map<String, Object>> paramsData = bizUtils.paramsList(menuCode,"0","p_update");
         modelAndView.addObject(PARAMS_DATA_KEY,paramsData);
         modelAndView.addObject(TYPE_MODEL_KEY,"edit");
-        modelAndView.addObject("menuCode",menuCode);
+        modelAndView.addObject(MENU_CODE,menuCode);
         modelAndView.setViewName(viewPath(menuCode));
         return modelAndView;
     }
@@ -136,7 +137,7 @@ public abstract class AbstractBiz<T extends BaseService> implements BaseBiz<T>  
         List<Map<String, Object>> paramsData = bizUtils.paramsList(menuCode,"0","p_detail");
         modelAndView.addObject(PARAMS_DATA_KEY,paramsData);
         modelAndView.addObject(TYPE_MODEL_KEY,"detail");
-        modelAndView.addObject("menuCode",menuCode);
+        modelAndView.addObject(MENU_CODE,menuCode);
         return modelAndView;
     }
 

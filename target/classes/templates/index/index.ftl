@@ -53,8 +53,18 @@
                         <a class="" href="javascript:;"><i class="fa fa-plug" aria-hidden="true"></i><span> 用户管理</span></a>
                         <dl class="layui-nav-child">
                             <dd><a href="javascript:;" data-url="/admin/tableList?_urlP=admin" data-icon="fa-user" data-title="系统管理员" kit-target data-id="1"><i class="fa fa-user"></i>&nbsp;&nbsp;<span>系统管理员</span></a></dd>
+                            <dd><a href="javascript:;" data-url="/role/tableList?_urlP=role" data-icon="fa-user" data-title="系统角色" kit-target data-id="2"><i class="fa fa-user"></i>&nbsp;&nbsp;<span>系统角色</span></a></dd>
+                            <dd><a href="javascript:;" data-url="/permit/tableList?_urlP=permit" data-icon="fa-user" data-title="系统权限" kit-target data-id="3"><i class="fa fa-user"></i>&nbsp;&nbsp;<span>系统权限</span></a></dd>
                         </dl>
                     </li>
+                    <li class="layui-nav-item">
+                        <a class="" href="javascript:;"><i class="fa fa-plug" aria-hidden="true"></i><span> 系统设置</span></a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;" data-url="/showParam/tableList?_urlP=showParam" data-icon="fa-user" data-title="系统设置" kit-target data-id="4"><i class="fa fa-user"></i>&nbsp;&nbsp;<span>系统设置</span></a></dd>
+                        </dl>
+                    </li>
+
+
                     <li class="layui-nav-item">
                         <a href="javascript:;"><i class="fa fa-plug" aria-hidden="true"></i><span> 组件</span></a>
                         <dl class="layui-nav-child">

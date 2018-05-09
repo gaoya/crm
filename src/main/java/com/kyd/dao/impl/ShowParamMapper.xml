@@ -24,8 +24,6 @@
             p_adddata,
             p_update,
             p_updatedata,
-            p_add_update_label,
-            p_add_update_msg,
             p_detail,
             p_del,
             p_defaultvalue,
@@ -51,8 +49,6 @@
             #{pAdddata},
             #{pUpdate},
             #{pUpdatedata},
-            #{pAddUpdateLabel},
-            #{pAddUpdateMsg},
             #{pDetail},
             #{pDel},
             #{pDefaultvalue},
@@ -162,8 +158,6 @@
         p_adddata as pAdddata,
         p_update as pUpdate,
         p_updatedata as pUpdatedata,
-        p_add_update_label as pAddUpdateLabel,
-        p_add_update_msg as pAddUpdateMsg,
         p_detail as pDetail,
         p_del as pDel,
         p_defaultvalue as pDefaultvalue,
@@ -190,8 +184,6 @@
         <if test="pAdddata != null and pAdddata!=''">AND p_adddata= #{pAdddata}</if>
         <if test="pUpdate != null and pUpdate!=''">AND p_update = #{pUpdate}</if>
         <if test="pUpdatedata != null and pUpdatedata!=''">AND p_updatedata = #{pUpdatedata}</if>
-        <if test="pAddUpdateLabel != null and pAddUpdateLabel!=''">AND p_add_update_label = #{pAddUpdateLabel}</if>
-        <if test="pAddUpdateMsg != null and pAddUpdateMsg!=''">AND p_add_update_msg = #{pAddUpdateMsg}</if>
         <if test="pDetail != null and pDetail!=''">AND p_detail = #{pDetail}</if>
         <if test="pDel != null and pDel!=''">AND p_del = #{pDel}</if>
         <if test="pDefaultvalue != null and pDefaultvalue!=''">AND p_defaultvalue = #{pDefaultvalue}</if>
@@ -219,8 +211,6 @@
             <if test="pAdddata!=null and pAdddata!=''">p_adddata=#{pAdddata},</if>
             <if test="pUpdate!=null and pUpdate!=''">p_update=#{pUpdate},</if>
             <if test="pUpdatedata!=null and pUpdatedata!=''">p_updatedata=#{pUpdatedata},</if>
-            <if test="pAddUpdateLabel!=null and pAddUpdateLabel!=''">p_add_update_label=#{pAddUpdateLabel},</if>
-            <if test="pAddUpdateMsg!=null and pAddUpdateMsg!=''">p_add_update_msg=#{pAddUpdateMsg},</if>
             <if test="pDetail!=null and pDetail!=''">p_detail=#{pDetail},</if>
             <if test="pDel!=null an pDel!=''">p_del=#{pDel},</if>
             <if test="pDefaultvalue!=null and pDefaultvalue!=''">p_defaultvalue=#{pDefaultvalue},</if>

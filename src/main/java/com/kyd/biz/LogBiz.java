@@ -101,7 +101,7 @@ public class LogBiz extends AbstractBiz<LogService> implements BaseBiz<LogServic
     })
     protected ResultUpdateViewDate update() {
         Map<String, Object> param = bizUtils.requestToMap(request);
-        return super.update(param);
+        return super.edit(param);
     }
 
     @ApiOperation("新增数据信息")
