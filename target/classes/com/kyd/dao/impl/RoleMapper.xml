@@ -11,7 +11,6 @@
         INSERT  INTO
         sys_role
         (
-id,
 role_no,
 role_name,
 role_alias,
@@ -26,7 +25,6 @@ remark
         )
         VALUES
         (
-#{id},
 #{roleNo},
 #{roleName},
 #{roleAlias},
@@ -97,17 +95,17 @@ timestamp(now()),
     </select>
 
     <sql id="COLUMN_SQL">
-id as id,
-role_no as roleNo,
-role_name as roleName,
-role_alias as roleAlias,
-role_code as roleCode,
-role_introduction as roleIntroduction,
-use_flag as useFlag,
-del_flag as delFlag,
-create_user as createUser,
-create_time as createTime,
-remark as remark
+ID AS ID,
+ROLE_NO AS ROLENO,
+ROLE_NAME AS ROLENAME,
+ROLE_ALIAS AS ROLEALIAS,
+ROLE_CODE AS ROLECODE,
+ROLE_INTRODUCTION AS ROLEINTRODUCTION,
+USE_FLAG AS USEFLAG,
+DEL_FLAG AS DELFLAG,
+CREATE_USER AS CREATEUSER,
+CREATE_TIME AS CREATETIME,
+REMARK AS REMARK
 
     </sql>
 

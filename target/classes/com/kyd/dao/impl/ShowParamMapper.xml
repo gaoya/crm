@@ -66,7 +66,9 @@
     </delete>
 
     <select id="findById" parameterType="java.lang.Long" resultType="java.util.Map">
-      SELECT * FROM sys_show_param
+      SELECT
+        <include refid="COLUMN_SQL"/>
+      FROM sys_show_param
       WHERE ID=#{id}
     </select>
 
@@ -141,32 +143,32 @@
         SYS_SHOW_PARAM
         where
         ${pType} = #{pTypeValue}
-        and (menu_code = #{menuCode} or menu_code = lower(#{menuCode}))
+        and (menu_code = #{menuCode} or lower (menu_code) = lower(#{menuCode}))
     </select>
 
     <sql id="COLUMN_SQL">
-        id as id,
-        menu_Id as menuId,
-        menu_code as menuCode,
-        p_id as pId,
-        p_name as pName,
-        p_placeholder as pPlaceholder,
-        p_label as pLabel,
-        p_list as pList,
-        p_listdata as pListdata,
-        p_add as pAdd,
-        p_adddata as pAdddata,
-        p_update as pUpdate,
-        p_updatedata as pUpdatedata,
-        p_detail as pDetail,
-        p_del as pDel,
-        p_defaultvalue as pDefaultvalue,
-        p_user as pUser,
-        p_time as pTime,
-        p_sort as pSort,
-        p_remark as pRemark,
-        p_search as pSearch,
-        p_searchdata as pSearchdata
+        ID AS ID,
+        MENU_ID AS MENUID,
+        MENU_CODE AS MENUCODE,
+        P_ID AS PID,
+        P_NAME AS PNAME,
+        P_PLACEHOLDER AS PPLACEHOLDER,
+        P_LABEL AS PLABEL,
+        P_LIST AS PLIST,
+        P_LISTDATA AS PLISTDATA,
+        P_ADD AS PADD,
+        P_ADDDATA AS PADDDATA,
+        P_UPDATE AS PUPDATE,
+        P_UPDATEDATA AS PUPDATEDATA,
+        P_DETAIL AS PDETAIL,
+        P_DEL AS PDEL,
+        P_DEFAULTVALUE AS PDEFAULTVALUE,
+        P_USER AS PUSER,
+        P_TIME AS PTIME,
+        P_SORT AS PSORT,
+        P_REMARK AS PREMARK,
+        P_SEARCH AS PSEARCH,
+        P_SEARCHDATA AS PSEARCHDATA
 
     </sql>
 

@@ -40,7 +40,7 @@ public class RoleBiz extends AbstractBiz<RoleService> implements BaseBiz<RoleSer
 
     })
     @ResponseBody
-    @RequestMapping(value = "/list", method = RequestMethod.POST)
+    @RequestMapping(value = "/list")
     protected ResultListViewData list() {
         Map<String, Object> param = bizUtils.requestToMap(request);
         return super.list(param);

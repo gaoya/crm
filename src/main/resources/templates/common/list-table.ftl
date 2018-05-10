@@ -4,9 +4,9 @@
         <div class="layui-form-item">
             <#list searchData as search>
                 <div class="layui-inline">
-                    <label class="layui-form-label">${search.pLabel}</label>
+                    <label class="layui-form-label">${(search.PLABEL)!""}</label>
                     <div class="layui-input-inline">
-                        ${search.pSearchdata}
+                        ${(search.PSEARCHDATA)!""}
                     </div>
                 </div>
             </#list>
@@ -36,7 +36,7 @@
             <tr>
                 <th lay-data="{type:'checkbox', fixed: 'left'}"></th>
                 <#list titleData as title>
-                    <th lay-data="${title.pListdata}">${title.pLabel}</th>
+                    <th lay-data="${(title.PLISTDATA)!""}">${(title.PLABEL)!""}</th>
                 </#list>
                 <th lay-data="{fixed: 'right', width:178, align:'center', toolbar: '#toolBar'}"></th>
             </tr>

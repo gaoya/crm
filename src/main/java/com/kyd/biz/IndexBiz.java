@@ -15,7 +15,7 @@ import java.util.Map;
 
 @RequestMapping("/")
 @Controller
-public class IndexController {
+public class IndexBiz {
 
     @Autowired
     private BizUtils bizUtils;

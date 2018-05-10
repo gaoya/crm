@@ -40,7 +40,7 @@ public class PermitBiz extends AbstractBiz<PermitService> implements BaseBiz<Per
             @ApiImplicitParam(name = "remark", value = "备注")
     })
     @ResponseBody
-    @RequestMapping(value = "/list", method = RequestMethod.POST)
+    @RequestMapping(value = "/list")
     protected ResultListViewData list() {
         Map<String, Object> param = bizUtils.requestToMap(request);
         return super.list(param);

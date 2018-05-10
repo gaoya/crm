@@ -116,18 +116,18 @@
     </select>
 
     <sql id="COLUMN_SQL">
-        id as id,
-        name as name,
-        age as age,
-        phone as phone,
-        address as address,
-        email as email,
-        qq as qq,
-        create_time as createTime,
-        create_user as createUser,
-        remark as remark,
-        use_flag as useFlag,
-        del_flag as delFlag
+        ID AS ID,
+        NAME AS NAME,
+        AGE AS AGE,
+        PHONE AS PHONE,
+        ADDRESS AS ADDRESS,
+        EMAIL AS EMAIL,
+        QQ AS QQ,
+        CREATE_TIME AS CREATETIME,
+        CREATE_USER AS CREATEUSER,
+        REMARK AS REMARK,
+        USE_FLAG AS USEFLAG,
+        DEL_FLAG AS DELFLAG
 
     </sql>
 

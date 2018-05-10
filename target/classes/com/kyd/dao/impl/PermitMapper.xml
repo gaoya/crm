@@ -11,7 +11,6 @@
         INSERT  INTO
         sys_permit
         (
-id,
 permit_no,
 permit_name,
 permit_alias,
@@ -26,7 +25,6 @@ remark
         )
         VALUES
         (
-#{id},
 #{permitNo},
 #{permitName},
 #{permit_alias},
@@ -97,17 +95,17 @@ timestamp(now()),
     </select>
 
     <sql id="COLUMN_SQL">
-id as id,
-permit_no as permitNo,
-permit_name as permitName,
-permit_alias as permit_alias,
-permit_code as permitCode,
-permit_introduction as permitIntroduction,
-use_flag as userFlag,
-del_flag as delFlag,
-create_user as createUser,
-create_time as createTime,
-remark as remark
+ID AS ID,
+PERMIT_NO AS PERMITNO,
+PERMIT_NAME AS PERMITNAME,
+PERMIT_ALIAS AS PERMITALIAS,
+PERMIT_CODE AS PERMITCODE,
+PERMIT_INTRODUCTION AS PERMITINTRODUCTION,
+USE_FLAG AS USERFLAG,
+DEL_FLAG AS DELFLAG,
+CREATE_USER AS CREATEUSER,
+CREATE_TIME AS CREATETIME,
+REMARK AS REMARK
 
     </sql>
 

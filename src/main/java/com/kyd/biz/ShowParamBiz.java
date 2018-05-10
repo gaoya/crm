@@ -46,7 +46,7 @@ public class ShowParamBiz extends AbstractBiz<ShowParamService> implements BaseB
 
     })
     @ResponseBody
-    @RequestMapping(value = "/list", method = RequestMethod.POST)
+    @RequestMapping(value = "/list")
     protected ResultListViewData list() {
         Map<String, Object> param = bizUtils.requestToMap(request);
         return super.list(param);
@@ -206,6 +206,9 @@ public class ShowParamBiz extends AbstractBiz<ShowParamService> implements BaseB
         if (id > 0) {
             modelAndView = super.detailView(TYPE_MODEL, id);
         }
+        System.out.println("=====detail=========\n");
+        System.out.println(modelAndView);
+        System.out.println("============\n");
         return modelAndView;
     }
 }

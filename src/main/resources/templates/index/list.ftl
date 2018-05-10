@@ -9,8 +9,10 @@
 <@ltable.innerToolsBar/>
 <@common.js/>
 <@ltable.table '/${menuType}/list'/>
+<#--<@ltable.table '/showParam/list'/>-->
 <script>
     initTable('/${menuType}')
+    // initTable('/showParam')
 </script>
 </body>
 </html>
